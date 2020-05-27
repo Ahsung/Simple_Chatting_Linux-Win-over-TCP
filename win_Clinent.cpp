@@ -43,7 +43,7 @@ int main(int argc, char * argv[]) {
 	char ip[20], port[10];
 	int strLen = 0;
 	if (argc != 3) {
-		//cout << "Usage: ÇÁ·Î¼¼½ºname ip port ¼ø¼­·Î ÀÔ·Â" << endl;
+		//cout << "Usage: í”„ë¡œì„¸ìŠ¤name ip port ìˆœì„œë¡œ ìž…ë ¥" << endl;
 		//exit(1);
 		cout << "Input Ip: ";
 		cin >> ip;
@@ -54,21 +54,21 @@ int main(int argc, char * argv[]) {
 		strcpy(ip, argv[1]), strcpy(port, argv[2]);
 
 
-	cout << "ip: " << ip << " port: " << port << " ¿¬°á½Ãµµ!" << endl;
+	cout << "ip: " << ip << " port: " << port << " ì—°ê²°ì‹œë„!" << endl;
 	if (WSAStartup(MAKEWORD(2, 2), &wsadata) != 0) {
-		erromessage("WSAStartupÀÌ Àß¸øµÊ");
+		erromessage("WSAStartupì´ ìž˜ëª»ë¨");
 	}
 
-	//¼ÒÄÏ »ý¼º
+	//ì†Œì¼“ ìƒì„±
 	hSocket = socket(PF_INET, SOCK_STREAM, 0);
-	if (hSocket == INVALID_SOCKET) erromessage("Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ ¾È¿­¸²");
+	if (hSocket == INVALID_SOCKET) erromessage("í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ì•ˆì—´ë¦¼");
 	
-	//¼ÒÄÏ¿¡ ÁÖ¼ÒÇÒ´ç.
+	//ì†Œì¼“ì— ì£¼ì†Œí• ë‹¹.
 	memset(&servAddr, 0, sizeof(servAddr));
 	servAddr.sin_family = AF_INET;
 	servAddr.sin_addr.s_addr = inet_addr(ip);
 	servAddr.sin_port = htons(atoi(port));
-	if (connect(hSocket, (sockaddr*)&servAddr, sizeof(servAddr)) == SOCKET_ERROR) erromessage("connect ½ÇÆÐ");
+	if (connect(hSocket, (sockaddr*)&servAddr, sizeof(servAddr)) == SOCKET_ERROR) erromessage("connect ì‹¤íŒ¨");
 	
 	if (_beginthread(readSock, sizeof(char) * lenMsg + sizeof(SOCKET), &hSocket) < 0)
 		erromessage("fail create thread");
@@ -80,7 +80,7 @@ int main(int argc, char * argv[]) {
 
 		strLen = send(hSocket, message, sizeof(message), 1);
 		if (strLen < 0)
-			erromessage("¼­¹ö¿¡ ³»¿ë Àü¼Û ½ÇÆÐ");
+			erromessage("ì„œë²„ì— ë‚´ìš© ì „ì†¡ ì‹¤íŒ¨");
 		if (strcmp(message, "exit") == 0)
 			break;
 	}
