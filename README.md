@@ -3,7 +3,6 @@
 **Thread excute read(recv) func**
 
 ***linux***
-
 ```console
 $ make
 $ ./server <port>
