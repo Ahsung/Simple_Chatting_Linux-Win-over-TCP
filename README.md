@@ -4,10 +4,10 @@
 
 ***linux***
 
-'''console
+```console
 $ make
 $ ./server <port>
-'''
+```
 
 ***win***
 * argv : ip port
