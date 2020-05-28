@@ -49,6 +49,7 @@ int main(int argc, char * argv[]) {
 		cin >> ip;
 		cout << "Input Port:";
 		cin >> port;
+		cin.ignore();
 	}
 	else
 		strcpy(ip, argv[1]), strcpy(port, argv[2]);
