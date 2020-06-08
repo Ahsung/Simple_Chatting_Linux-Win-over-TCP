@@ -1,6 +1,6 @@
 # Simple_Shell_Chatting_Linux-Win-over-TCP
 
-**Thread excute read(recv) func**
+**Thread execute read(recv) func**
 
 ***linux***
 ```console
